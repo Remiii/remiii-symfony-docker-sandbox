@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+    engine:
+        volumes:
+            - unique-name_rsync-sync:/home/docker:rw # will be mounted on /var/www
+            - unique-name_vars-cache:/home/docker/vars/cache
+            - unique-name_vars-logs:/home/docker/vars/logs
+            - unique-name_vendor:/home/docker/vendor
+    db:
+        volumes:
+            - unique-name_var-lib-mysql:/var/lib/mysql
+
+volumes:
+    unique-name_rsync-sync:
+        external: true
+    unique-name_vars-cache:
+    unique-name_vars-logs:
+    unique-name_vendor:
+    unique-name_var-lib-mysql:
